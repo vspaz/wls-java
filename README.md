@@ -5,7 +5,7 @@ the idea is similar to [statsmodels.regression.linear_model.WLS.fit](https://tin
 
 ## General Info
 
-WLS is based the OLS method and help solve problems of model inadequacy or 
+WLS is based on the OLS method and help solve problems of model inadequacy or 
 violations of the basic regression assumptions.
 
 Estimating a linear regression with WLS is useful, but can be appear to be daunting w/o special stats packages, e.g.
