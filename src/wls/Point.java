@@ -1,19 +1,19 @@
 package wls;
 
 public class Point {
-    private Double intercept;
-    private Double slope;
+  private final Double intercept;
+  private final Double slope;
 
-    public Double getIntercept() {
-        return intercept;
-    }
+  public Point(Double intercept, Double slope) {
+    this.intercept = intercept;
+    this.slope = slope;
+  }
 
-    public Double getSlope() {
-        return slope;
-    }
+  public Double getIntercept() {
+    return intercept;
+  }
 
-    public Point(Double intercept, Double slope) {
-        this.intercept = intercept;
-        this.slope = slope;
-    }
+  public Double getSlope() {
+    return slope;
+  }
 }
