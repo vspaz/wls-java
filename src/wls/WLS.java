@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 public class WLS {
   private final double[] y;
-    private final double[] x;
-    private final double[] w;
+  private final double[] x;
+  private final double[] w;
 
   public WLS(double[] y, double[] x, double[] w) {
     assert x.length == y.length && x.length == w.length;
