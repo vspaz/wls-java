@@ -31,13 +31,11 @@ class WLSTest {
   }
 
   @Test()
-  void testSinglePointDissallowed() {
+  void testSinglePointDisallowed() {
     double[] x = {10};
     double[] y = {1};
     assertThrows(
         AssertionError.class,
-        () -> {
-          WLS wls = new WLS(x, y);
-        });
+        () -> new WLS(x, y));
   }
 }
