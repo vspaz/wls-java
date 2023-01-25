@@ -1,4 +1,4 @@
-package wls;
+package org.vspaz.wls;
 
 public class Point {
   private final Double intercept;

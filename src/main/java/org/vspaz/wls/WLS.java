@@ -1,39 +1,39 @@
-package wls;
+package org.vspaz.wls;
 
 import java.util.Arrays;
 
 public class WLS {
-  private final double[] y;
-  private final double[] x;
-  private final double[] w;
-
+  private final double[] yPoints;
+  private final double[] xPoints;
+  private final double[] weights;
+  
   public WLS(double[] y, double[] x, double[] w) {
     assert x.length == y.length && x.length == w.length;
     assert x.length > 2;
 
-    this.x = x;
-    this.y = y;
-    this.w = w;
+    this.xPoints = x;
+    this.yPoints = y;
+    this.weights = w;
   }
 
   public WLS(double[] x, double[] y) {
     assert x.length == y.length;
     assert x.length > 2;
 
-    this.x = x;
-    this.y = y;
-    this.w = new double[x.length];
-    Arrays.fill(this.w, 1);
+    this.xPoints = x;
+    this.yPoints = y;
+    this.weights = new double[x.length];
+    Arrays.fill(this.weights, 1);
   }
 
   public WLS(double[] x, double[] y, double w) {
     assert x.length == y.length;
     assert x.length > 2;
 
-    this.x = x;
-    this.y = y;
-    this.w = new double[x.length];
-    Arrays.fill(this.w, w);
+    this.xPoints = x;
+    this.yPoints = y;
+    this.weights = new double[x.length];
+    Arrays.fill(this.weights, w);
   }
 
   public Point fitLinearRegression() {
@@ -45,10 +45,10 @@ public class WLS {
 
     double Xi, Yi, Wi, XiByWi;
 
-    for (int i = 0; i < this.x.length; i++) {
-      Xi = this.x[i];
-      Yi = this.y[i];
-      Wi = this.w[i];
+    for (int i = 0; i < this.xPoints.length; i++) {
+      Xi = this.xPoints[i];
+      Yi = this.yPoints[i];
+      Wi = this.weights[i];
 
       sumOfWeights += Wi;
       XiByWi = Xi * Wi;

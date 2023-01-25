@@ -1,4 +1,4 @@
-package wls;
+package org.vspaz.wls;
 
 import org.junit.jupiter.api.*;
 
