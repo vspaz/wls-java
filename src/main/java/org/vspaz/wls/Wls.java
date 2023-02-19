@@ -2,12 +2,12 @@ package org.vspaz.wls;
 
 import java.util.Arrays;
 
-public class WLS {
+public class Wls {
   private final double[] yPoints;
   private final double[] xPoints;
   private final double[] weights;
-  
-  public WLS(double[] y, double[] x, double[] w) {
+
+  public Wls(double[] y, double[] x, double[] w) {
     assert x.length == y.length && x.length == w.length;
     assert x.length > 2;
 
@@ -16,7 +16,7 @@ public class WLS {
     this.weights = w;
   }
 
-  public WLS(double[] x, double[] y) {
+  public Wls(double[] x, double[] y) {
     assert x.length == y.length;
     assert x.length > 2;
 
@@ -26,7 +26,7 @@ public class WLS {
     Arrays.fill(this.weights, 1);
   }
 
-  public WLS(double[] x, double[] y, double w) {
+  public Wls(double[] x, double[] y, double w) {
     assert x.length == y.length;
     assert x.length > 2;
 

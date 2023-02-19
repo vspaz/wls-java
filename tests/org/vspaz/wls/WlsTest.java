@@ -4,16 +4,16 @@ import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class WLSTest {
+class WlsTest {
 
   final double delta = 1.0e-6;
 
   @Test
   void testWLSModelStableWeight() {
-    final double[] x = {1, 2, 3, 4, 5, 6, 7};
-    final double[] y = {1, 3, 4, 5, 2, 3, 4};
+    final double[] x = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0};
+    final double[] y = {1.0, 3.0, 4.0, 5.0, 2.0, 3.0, 4.0};
 
-    WLS wls = new WLS(x, y);
+    Wls wls = new Wls(x, y);
     Point point = wls.fitLinearRegression();
 
     assertEquals(2.14285714, point.getIntercept(), delta);
@@ -22,10 +22,10 @@ class WLSTest {
 
   @Test
   void testWLSModelWeight() {
-    final double[] x = {1, 2, 3, 4, 5, 6, 7};
-    final double[] y = {1, 3, 4, 5, 2, 3, 4};
+    final double[] x = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0};
+    final double[] y = {1.0, 3.0, 4.0, 5.0, 2.0, 3.0, 4.0};
 
-    WLS wls = new WLS(x, y, 0.9);
+    Wls wls = new Wls(x, y, 0.9);
     Point point = wls.fitLinearRegression();
 
     assertEquals(2.14285714, point.getIntercept(), delta);
@@ -34,10 +34,10 @@ class WLSTest {
 
   @Test()
   void testSinglePointDisallowed() {
-    final double[] x = {10};
-    final double[] y = {1};
+    final double[] x = {10.0};
+    final double[] y = {1.0};
     assertThrows(
         AssertionError.class,
-        () -> new WLS(x, y));
+        () -> new Wls(x, y));
   }
 }
