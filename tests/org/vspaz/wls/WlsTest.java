@@ -9,7 +9,7 @@ class WlsTest {
   final double delta = 1.0e-6;
 
   @Test
-  void testWLSModelStableWeight() {
+  void testWlsModelStableWeight() {
     final double[] xPoints = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0};
     final double[] yPoints = {1.0, 3.0, 4.0, 5.0, 2.0, 3.0, 4.0};
 
@@ -21,7 +21,7 @@ class WlsTest {
   }
 
   @Test
-  void testWLSModelWeight() {
+  void testWlsModelWeight() {
     final double[] xPoints = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0};
     final double[] yPoints = {1.0, 3.0, 4.0, 5.0, 2.0, 3.0, 4.0};
 
