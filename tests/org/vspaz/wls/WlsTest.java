@@ -65,6 +65,16 @@ class WlsTest {
     assertEquals(1.0, point.getSlope());
   }
 
+  @Test
+  void testDownHillOk() {
+    final double[] x = {1.0, 0.0};
+    final double[] y = {0.0, 1.0};
+
+    Wls wls = new Wls(x, y);
+    Point point = wls.fitLinearRegression();
+    assertEquals(1.0, point.getIntercept());
+    assertEquals(-1.0, point.getSlope());
+  }
 
   @Test()
   void testSinglePointDisallowed() {
