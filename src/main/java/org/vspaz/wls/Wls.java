@@ -18,7 +18,7 @@ public class Wls {
 
   public Wls(double[] x, double[] y) {
     assert x.length == y.length;
-    assert x.length > 2;
+    assert x.length >= 2;
 
     this.xPoints = x;
     this.yPoints = y;
