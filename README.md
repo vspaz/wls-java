@@ -1,6 +1,6 @@
 # wls-java
 
-weighted linear regression with JAVA
+weighted linear regression in pure Java w/o any 3d party dependency or framework.
 
 the idea is similar to [statsmodels.regression.linear_model.WLS.fit](https://tinyurl.com/y3vkn5d2)
 
@@ -19,10 +19,11 @@ free to get familiarized with the reference materials. Believe me you're gonna h
 ## How-to
 
 ```
-double[] x = {1, 2, 3, 4, 5, 6, 7};
-double[] y = {1, 3, 4, 5, 2, 3, 4};
+double[] xPoints = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0};
+double[] yPoints = {1.0, 3.0, 4.0, 5.0, 2.0, 3.0, 4.0};
+double[] weights = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0};
 
-WLS wls = new WLS(x, y, 0.9);
+Wls wls = new Wls(x, y, weights);
 Point point = wls.fitLinearRegression();
 
 double intercept = point.getIntercept();
