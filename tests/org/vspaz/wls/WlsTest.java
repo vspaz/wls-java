@@ -10,10 +10,10 @@ class WlsTest {
 
   @Test
   void testWLSModelStableWeight() {
-    final double[] x = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0};
-    final double[] y = {1.0, 3.0, 4.0, 5.0, 2.0, 3.0, 4.0};
+    final double[] xPoints = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0};
+    final double[] yPoints = {1.0, 3.0, 4.0, 5.0, 2.0, 3.0, 4.0};
 
-    Wls wls = new Wls(x, y);
+    Wls wls = new Wls(xPoints, yPoints);
     Point point = wls.fitLinearRegression();
 
     assertEquals(2.14285714, point.getIntercept(), delta);
@@ -22,10 +22,10 @@ class WlsTest {
 
   @Test
   void testWLSModelWeight() {
-    final double[] x = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0};
-    final double[] y = {1.0, 3.0, 4.0, 5.0, 2.0, 3.0, 4.0};
+    final double[] xPoints = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0};
+    final double[] yPoints = {1.0, 3.0, 4.0, 5.0, 2.0, 3.0, 4.0};
 
-    Wls wls = new Wls(x, y, 0.9);
+    Wls wls = new Wls(xPoints, yPoints, 0.9);
     Point point = wls.fitLinearRegression();
 
     assertEquals(2.14285714, point.getIntercept(), delta);
@@ -34,10 +34,10 @@ class WlsTest {
 
   @Test
   void testHorizontalLineOk() {
-    final double[] x = {0.0, 1.0};
-    final double[] y = {10.0, 10.0};
+    final double[] xPoints = {0.0, 1.0};
+    final double[] yPoints = {10.0, 10.0};
 
-    Wls wls = new Wls(x, y);
+    Wls wls = new Wls(xPoints, yPoints);
     Point point = wls.fitLinearRegression();
     assertEquals(10.0, point.getIntercept());
     assertEquals(0.0, point.getSlope());
@@ -45,10 +45,10 @@ class WlsTest {
 
   @Test
   void testVerticalLineOk() {
-    final double[] x = {1.0, 1.0};
-    final double[] y = {10.0, 1.0};
+    final double[] xPoints = {1.0, 1.0};
+    final double[] yPoints = {10.0, 1.0};
 
-    Wls wls = new Wls(x, y);
+    Wls wls = new Wls(xPoints, yPoints);
     Point point = wls.fitLinearRegression();
     assertNull(point.getIntercept());
     assertNull(point.getSlope());
@@ -56,10 +56,10 @@ class WlsTest {
 
   @Test
   void testRunUphillOk() {
-    final double[] x = {0.0, 1.0};
-    final double[] y = {0.0, 1.0};
+    final double[] xPoints = {0.0, 1.0};
+    final double[] yPoints = {0.0, 1.0};
 
-    Wls wls = new Wls(x, y);
+    Wls wls = new Wls(xPoints, yPoints);
     Point point = wls.fitLinearRegression();
     assertEquals(0.0, point.getIntercept());
     assertEquals(1.0, point.getSlope());
@@ -67,10 +67,10 @@ class WlsTest {
 
   @Test
   void testDownHillOk() {
-    final double[] x = {1.0, 0.0};
-    final double[] y = {0.0, 1.0};
+    final double[] xPoints = {1.0, 0.0};
+    final double[] yPoints = {0.0, 1.0};
 
-    Wls wls = new Wls(x, y);
+    Wls wls = new Wls(xPoints, yPoints);
     Point point = wls.fitLinearRegression();
     assertEquals(1.0, point.getIntercept());
     assertEquals(-1.0, point.getSlope());
@@ -78,10 +78,10 @@ class WlsTest {
 
   @Test()
   void testSinglePointDisallowed() {
-    final double[] x = {10.0};
-    final double[] y = {1.0};
+    final double[] xPoints = {10.0};
+    final double[] yPoints = {1.0};
     assertThrows(
         AssertionError.class,
-        () -> new Wls(x, y));
+        () -> new Wls(xPoints, yPoints));
   }
 }
