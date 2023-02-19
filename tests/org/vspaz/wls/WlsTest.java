@@ -43,6 +43,18 @@ class WlsTest {
     assertEquals(0.0, point.getSlope());
   }
 
+  @Test
+  void testVerticalLineOk() {
+    final double[] x = {1.0, 1.0};
+    final double[] y = {10.0, 1.0};
+
+    Wls wls = new Wls(x, y);
+    Point point = wls.fitLinearRegression();
+    assertNull(point.getIntercept());
+    assertNull(point.getSlope());
+  }
+
+
   @Test()
   void testSinglePointDisallowed() {
     final double[] x = {10.0};
