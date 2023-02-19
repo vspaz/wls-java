@@ -18,7 +18,7 @@ free to get familiarized with the reference materials. Believe me you're gonna h
 
 ## How-to
 
-```
+```java
 double[] xPoints = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0};
 double[] yPoints = {1.0, 3.0, 4.0, 5.0, 2.0, 3.0, 4.0};
 double[] weights = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0};
