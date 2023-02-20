@@ -10,27 +10,32 @@ WLS is based on the OLS method and help solve problems of model inadequacy or vi
 assumptions.
 
 Estimating a linear regression with WLS is useful, but can be appear to be daunting w/o special stats packages, e.g.
-python statsmodels.
-
-Still, fitting the model is extremely easy once you can wrap your head around linear algebra and such. Jump to the code
-to see that there's nothing difficult about that, but if you feel that you were deprived of joy of Mathematics, feel
-free to get familiarized with the reference materials. Believe me you're gonna have enough :-)
+python statsmodels, spark & the like.
 
 ## How-to
 
 ```java
-package org.vspaz.wls;
+import org.vspaz.wls.*;
 
+public class Main {
+    public static void main(String [] args) {
+        double[] xPoints = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0};
+        double[] yPoints = {1.0, 3.0, 4.0, 5.0, 2.0, 3.0, 4.0};
+        double[] weights = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0};
 
-double[] xPoints = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0};
-double[] yPoints = {1.0, 3.0, 4.0, 5.0, 2.0, 3.0, 4.0};
-double[] weights = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0};
+        Wls wlsModel = new Wls(xPoints, yPoints, weights);
+        Point point = wlsModel.fitLinearRegression();
 
-Wls wls = new Wls(x, y, weights);
-Point point = wls.fitLinearRegression();
+        System.out.println(point.getIntercept());
+        System.out.println(point.getSlope());
+    }
+}
+```
 
-double intercept = point.getIntercept();
-double slope = point.getSlope();
+### Run the example
+```shell
+ mvn clean compile assembly:single
+ java -jar wls.jar
 ```
 
 ## References

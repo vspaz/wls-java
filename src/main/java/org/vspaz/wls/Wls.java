@@ -7,33 +7,33 @@ public class Wls {
   private final double[] xPoints;
   private final double[] weights;
 
-  public Wls(double[] y, double[] x, double[] w) {
-    assert x.length == y.length && x.length == w.length;
-    assert x.length > 2;
+  public Wls(double[] xPoints, double[] yPoints, double[] weights) {
+    assert xPoints.length == yPoints.length && xPoints.length == weights.length;
+    assert xPoints.length > 2;
 
-    this.xPoints = x;
-    this.yPoints = y;
-    this.weights = w;
+    this.xPoints = xPoints;
+    this.yPoints = yPoints;
+    this.weights = weights;
   }
 
-  public Wls(double[] x, double[] y) {
-    assert x.length == y.length;
-    assert x.length >= 2;
+  public Wls(double[] xPoints, double[] yPoints) {
+    assert xPoints.length == yPoints.length;
+    assert xPoints.length >= 2;
 
-    this.xPoints = x;
-    this.yPoints = y;
-    this.weights = new double[x.length];
+    this.xPoints = xPoints;
+    this.yPoints = yPoints;
+    this.weights = new double[xPoints.length];
     Arrays.fill(this.weights, 1);
   }
 
-  public Wls(double[] x, double[] y, double w) {
-    assert x.length == y.length;
-    assert x.length > 2;
+  public Wls(double[] xPoints, double[] yPoints, double weights) {
+    assert xPoints.length == yPoints.length;
+    assert xPoints.length > 2;
 
-    this.xPoints = x;
-    this.yPoints = y;
-    this.weights = new double[x.length];
-    Arrays.fill(this.weights, w);
+    this.xPoints = xPoints;
+    this.yPoints = yPoints;
+    this.weights = new double[xPoints.length];
+    Arrays.fill(this.weights, weights);
   }
 
   public Point fitLinearRegression() {
